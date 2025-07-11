@@ -1,3 +1,5 @@
+'use client';
+
 import { CustomerField } from '@/app/lib/definitions';
 import Link from 'next/link';
 import {
@@ -60,7 +62,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           </label>
           <div className="relative mt-2 rounded-md">
             <div className="relative">
-              <input required
+              <input 
                 id="amount"
                 name="amount"
                 type="number"
@@ -90,7 +92,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
           <div className="rounded-md border border-gray-200 bg-white px-[14px] py-3">
             <div className="flex gap-4">
               <div className="flex items-center">
-                <input required
+                <input 
                   id="pending"
                   name="status"
                   type="radio"
@@ -108,7 +110,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 </label>
               </div>
               <div className="flex items-center">
-                <input required
+                <input 
                   id="paid"
                   name="status"
                   type="radio"
