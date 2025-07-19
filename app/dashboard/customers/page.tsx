@@ -1,23 +1,16 @@
-import Pagination from '@/app/ui/invoices/pagination';
-import Search from '@/app/ui/search';
-import Table from '@/app/ui/invoices/table';
-import { CreateCustomers } from '@/app/ui/customers/buttons';
-import { lusitana } from '@/app/ui/fonts';
+import { fetchFCustomers } from '@/app/lib/data';
+import CustomersTable from '@/app/ui/customers/table';
 
-import { Suspense } from 'react';
- 
 export default async function Page() {
+  // const { query } = await params;
+  const customers = await fetchFCustomers()
+  console.log(customers);
+
+
   return (
     <div className="w-full">
-      <div className="flex w-full items-center justify-between">
-        <h1 className={`${lusitana.className} text-2xl`}>Customers</h1>
-      </div>
-      <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-        <Search placeholder="Search customers..." />
-        <CreateCustomers />
-      </div>
       <div className="mt-5 flex w-full justify-center">
-        {/* <Pagination totalPages={totalPages} /> */}
+        < CustomersTable customers={customers} />
       </div>
     </div>
   );
